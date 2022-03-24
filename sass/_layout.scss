@@ -1,0 +1,102 @@
+.container {
+  max-width: 120rem;
+  // If viewport is less than 1200px then we occupy the 100% of the available viewport width
+  margin: 8rem auto;
+  background-color: var(--color-grey-light-1);
+  box-shadow: var(--shadow-dark);
+  min-height: 50rem;
+
+  transition: margin 0.5s;
+  @media only screen and (max-width: $bp-largest) {
+    margin: 0;
+
+    max-width: 100%;
+    width: 100%;
+  }
+}
+
+.header {
+  font-size: 1.4rem;
+  height: 7rem;
+  background-color: #fff;
+  border-bottom: var(--line);
+
+  display: flex;
+
+  justify-content: space-between;
+  align-items: center;
+  @media only screen and (max-width: $bp-smallest) {
+    flex-wrap: wrap;
+    height: 11rem;
+    align-content: space-around;
+    // control space between the rows of the container
+  }
+}
+
+.content {
+  display: flex;
+
+  @media only screen and (max-width: $bp-medium) {
+    flex-direction: column;
+  }
+}
+
+.sidebar {
+  background-color: var(--color-grey-dark-1);
+  flex: 0 0 18%; // % will automatically shrink
+  // If px value then its better to shrink
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.hotel-view {
+  background-color: #fff;
+  flex: 1; // grow occupy remaining 82%
+  // testing purposes
+  // height: 80rem; we faked the height (thought he had content filling the height and then work) now removed as we added content.. We want the content to define the height as usual
+}
+
+.detail {
+  font-size: 1.4rem;
+
+  display: flex;
+  padding: 4.5rem;
+  background-color: var(--color-grey-light-1);
+  border-bottom: var(--line);
+  @media only screen and (max-width: $bp-medium) {
+    padding: 3rem;
+  }
+
+  @media only screen and (max-width: $bp-small) {
+    flex-direction: column;
+  }
+  // When we have two media query  we first put one for larger screen then after that smaller screen
+  // Both of these will apply. screen at 500px is also smaller than 900px both apply if theres conflicting declaration the last one will b applied
+}
+
+.description {
+  background-color: #fff;
+  box-shadow: var(--shadow-light);
+  padding: 3rem;
+  flex: 0 0 60%;
+  margin-right: 4.5rem;
+  @media only screen and (max-width: $bp-medium) {
+    padding: 2rem;
+    margin-right: 3rem;
+  }
+  @media only screen and (max-width: $bp-small) {
+    margin-right: 0;
+    margin-bottom: 3rem;
+  }
+}
+
+.user-reviews {
+  flex: 1;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  // text-align: center; center inline btn and reviews but forcing txtalign initial on reviews as we dont want
+}
